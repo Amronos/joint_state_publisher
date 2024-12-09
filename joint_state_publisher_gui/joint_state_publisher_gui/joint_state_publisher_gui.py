@@ -193,6 +193,11 @@ class JointStatePublisherGui(QMainWindow):
             if joint['min'] == joint['max']:
                 continue
 
+            if joint['min'] == float('-inf'):
+                joint['min'] = -3.14
+            if joint['max'] == float('inf'):
+                joint['max'] = 3.14
+
             slider = Slider(name)
 
             self.joint_map[name] = {'display': slider.display, 'slider': slider.slider, 'joint': joint}

@@ -116,6 +116,11 @@ class JointStatePublisher(rclpy.node.Node):
                 upper = upper_list[0]
                 maxval = _convert_to_float(name, jtype, 'upper', upper.firstChild.data)
 
+                if minval == float('-inf'):
+                    minval = -3.14
+                if maxval == float('inf'):
+                    maxval = 3.14
+
             if self.zeros and name in self.zeros:
                 zeroval = self.zeros[name]
             elif minval > 0 or maxval < 0:
