@@ -31,6 +31,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 import argparse
+import math
 import random
 import signal
 import sys
@@ -194,9 +195,9 @@ class JointStatePublisherGui(QMainWindow):
                 continue
 
             if joint['min'] == float('-inf'):
-                joint['min'] = -3.14
+                joint['min'] = -math.pi
             if joint['max'] == float('inf'):
-                joint['max'] = 3.14
+                joint['max'] = math.pi
 
             slider = Slider(name)
 
